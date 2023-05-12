@@ -12,7 +12,10 @@ const firstDate = document.querySelector("#firstDate")
 const secondDate = document.querySelector("#secondDate")
 
 
+let weekDay = dayOfTheWeek()
+
 dates.addEventListener("change",function(){
+    
    
     let daysOfTheWeek ={ 'Sunday':Sunday,
         'Monday':Monday,
@@ -33,13 +36,14 @@ dates.addEventListener("change",function(){
         firstDate.classList.remove('green')
         
       }
+      weekDay.setBothDates(dates.value,datesTwo.value)
 
-      if(getDate(dates.value) === getDate(datesTwo.value)){
+      if(weekDay.checkDates() === "same day"){
 
        
        
         for(var day in daysOfTheWeek){ 
-            if(getDate(dates.value) === day){
+            if(weekDay.dateOne() === day){
                 daysOfTheWeek[day].classList.add('green')
                 firstDate.classList.add('green')
                 secondDate.classList.add('green')
@@ -47,9 +51,11 @@ dates.addEventListener("change",function(){
         }
 
     }else{
+    
+        
 
     for(var day in daysOfTheWeek){ 
-        if(getDate(dates.value) === day){
+        if(weekDay.dateOne() === day){
              daysOfTheWeek[day].classList.add('yellow')
              firstDate.classList.add('yellow')
         }
@@ -77,12 +83,14 @@ datesTwo.addEventListener("change",function(){
         secondDate.classList.remove('green')
       }
 
-    if(getDate(dates.value) === getDate(datesTwo.value)){
+    weekDay.setBothDates(dates.value,datesTwo.value)
+
+    if(weekDay.checkDates() === "same day"){
 
        
        
         for(var day in weekDays){ 
-            if(getDate(datesTwo.value) === day){
+            if(weekDay.dateTwo() === day){
                 weekDays[day].classList.add('green')
                 firstDate.classList.add('green')
                 secondDate.classList.add('green')
@@ -92,7 +100,7 @@ datesTwo.addEventListener("change",function(){
     }else{
        
         for(var day in weekDays){ 
-            if(getDate(datesTwo.value) === day){
+            if(weekDay.dateTwo() === day){
                 weekDays[day].classList.add('blue')
                 secondDate.classList.add('blue')
             }

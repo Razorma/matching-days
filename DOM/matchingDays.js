@@ -13,6 +13,8 @@ const secondDate = document.querySelector("#secondDate")
 
 
 let weekDay = dayOfTheWeek()
+console.log(dates.value)
+console.log(datesTwo.value)
 
 dates.addEventListener("change",function(){
     
@@ -52,12 +54,15 @@ dates.addEventListener("change",function(){
 
     }else{
     
-        
 
     for(var day in daysOfTheWeek){ 
         if(weekDay.dateOne() === day){
              daysOfTheWeek[day].classList.add('yellow')
              firstDate.classList.add('yellow')
+        }
+        if(weekDay.dateTwo() === day){
+            daysOfTheWeek[day].classList.add('blue')
+            secondDate.classList.add('blue')
         }
     }
   }
@@ -104,9 +109,11 @@ datesTwo.addEventListener("change",function(){
                 weekDays[day].classList.add('blue')
                 secondDate.classList.add('blue')
             }
+            if(weekDay.dateOne() === day){
+                weekDays[day].classList.add('yellow')
+                firstDate.classList.add('yellow')
+           }
         }
     }
-  
-   
-    
+     
 });

@@ -13,8 +13,7 @@ const secondDate = document.querySelector("#secondDate")
 
 
 let weekDay = dayOfTheWeek()
-console.log(dates.value)
-console.log(datesTwo.value)
+
 
 dates.addEventListener("change",function(){
     

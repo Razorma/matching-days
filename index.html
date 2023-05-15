@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="main">
-        <div class="heading"><h1>Which Weekday</h1></div>
-        <div class="days" id="day-container">
-            
-        </div>
-        <div class="inputs">
-            <label for="firstDate"><p id="firstDate">First Date</p> <input type="date" name="firstDate" id="datesOne"></label>
-            <label for="secondDate"><p id="secondDate">Second Date</p><input type="date" name="secondDate" id="datesTwo"></label>
-        </div>
-        <div class="diviation"></div>
+      <div class="heading"><h1>Which Weekday</h1></div>
+      <div class="days" id="day-container"></div>
+      <div class="inputs">
+        <label for="firstDate"
+          ><p id="firstDate">First Date</p>
+          <input type="date" name="firstDate" id="datesOne"
+        /></label>
+        <label for="secondDate"
+          ><p id="secondDate">Second Date</p>
+          <input type="date" name="secondDate" id="datesTwo"
+        /></label>
+      </div>
+      <div class="diviation"></div>
     </div>
     <script type="text/x-template" class="userTemplate">
-            {{#each days}}
-                <div class="day ">
-                    <p class="{{this.name}} {{this.same}} {{this.colorOne}} {{this.colorTwo}}">
-                        {{this.name}}
-                    </p>
-                </div>
-            {{/each}}
+      {{#each days}}
+          <div class="day ">
+              <p class="{{this.name}} {{this.same}} {{this.colorOne}} {{this.colorTwo}}">
+                  {{this.name}}
+              </p>
+          </div>
+      {{/each}}
     </script>
-</body>
- 
-<script src="matching-days.js" charset="utf-8"></script>
-<script src="DOM/matchingDays.js" charset="utf-8"></script>
+  </body>
+
+  <script src="matching-days.js" charset="utf-8"></script>
+  <script src="DOM/matchingDays.js" charset="utf-8"></script>
 </html>

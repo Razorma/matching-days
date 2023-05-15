@@ -17,7 +17,7 @@ let weekDay = dayOfTheWeek()
 
 
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     let days = [
         {
             name: "Sunday",
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function(){
         },
     ];
 
-    
-    
+
+
 
 
     function createDays(days) {
@@ -76,99 +76,99 @@ document.addEventListener('DOMContentLoaded', function(){
         dayContainer.innerHTML = theWeek;
 
     }
-      createDays(days);
+    createDays(days);
 
-dates.addEventListener("change",function(){
-    
-    for (let i = 0; i < days.length; i++) {
+    dates.addEventListener("change", function () {
 
-          days[i].colorOne = "";
-          days[i].same = '';
-          firstDate.classList.remove('yellow')
-          firstDate.classList.remove('green')
-          secondDate.classList.remove('green')
+        for (let i = 0; i < days.length; i++) {
+
+            days[i].colorOne = "";
+            days[i].same = '';
+            firstDate.classList.remove('yellow')
+            firstDate.classList.remove('green')
+            secondDate.classList.remove('green')
 
         }
 
-      createDays(days);
-      weekDay.setBothDates(dates.value,datesTwo.value)
+        createDays(days);
+        weekDay.setBothDates(dates.value, datesTwo.value)
 
-      if(weekDay.checkDates().same === "green"){
+        if (weekDay.checkDates().same === "green") {
 
-       
-        for (let i = 0; i < days.length; i++) {
-            if (days[i].name === weekDay.dateOne()) {
-              days[i].same = 'green';
-              firstDate.classList.add('green')
-              secondDate.classList.add('green')
-              break; 
+
+            for (let i = 0; i < days.length; i++) {
+                if (days[i].name === weekDay.dateOne()) {
+                    days[i].same = 'green';
+                    firstDate.classList.add('green')
+                    secondDate.classList.add('green')
+                    break;
+                }
             }
-          }
-          createDays(days);
+            createDays(days);
 
-    }else{
-    
-        
-        for (let i = 0; i < days.length; i++) {
-            if (days[i].name === weekDay.dateOne()) {
-              days[i].colorOne = 'yellow';
-              firstDate.classList.add('yellow')
+        } else {
+
+
+            for (let i = 0; i < days.length; i++) {
+                if (days[i].name === weekDay.dateOne()) {
+                    days[i].colorOne = 'yellow';
+                    firstDate.classList.add('yellow')
+                }
+                if (days[i].name === weekDay.dateTwo()) {
+                    days[i].colorTwo = 'blue';
+                    secondDate.classList.add('blue')
+                }
             }
-            if(days[i].name === weekDay.dateTwo()){
-                days[i].colorTwo = 'blue';
-                secondDate.classList.add('blue')
-            }
-          }
-          createDays(days);
-  }
-    
-});
-
-datesTwo.addEventListener("change",function(){
-
-    for (let i = 0; i < days.length; i++) {
-
-          days[i].colorTwo = "";
-          secondDate.classList.remove('blue')
-          days[i].same = '';
-          firstDate.classList.remove('green')
-          secondDate.classList.remove('green')
+            createDays(days);
         }
 
-      createDays(days);
+    });
 
-    weekDay.setBothDates(dates.value,datesTwo.value)
-
-    if(weekDay.checkDates().same === "green"){
-
-       
-        for (let i = 0; i < days.length; i++) {
-            if (days[i].name === weekDay.dateTwo()) {
-              days[i].same = 'green';
-              firstDate.classList.add('green')
-              secondDate.classList.add('green')
-              break; 
-            }
-          }
-          createDays(days);
-    }else{
-
-
+    datesTwo.addEventListener("change", function () {
 
         for (let i = 0; i < days.length; i++) {
-            if (days[i].name === weekDay.dateTwo()) {
-              days[i].colorTwo = 'blue';
-              secondDate.classList.add('blue')
+
+            days[i].colorTwo = "";
+            secondDate.classList.remove('blue')
+            days[i].same = '';
+            firstDate.classList.remove('green')
+            secondDate.classList.remove('green')
+        }
+
+        createDays(days);
+
+        weekDay.setBothDates(dates.value, datesTwo.value)
+
+        if (weekDay.checkDates().same === "green") {
+
+
+            for (let i = 0; i < days.length; i++) {
+                if (days[i].name === weekDay.dateTwo()) {
+                    days[i].same = 'green';
+                    firstDate.classList.add('green')
+                    secondDate.classList.add('green')
+                    break;
+                }
             }
-            if(days[i].name === weekDay.dateOne()){
-                console.log(days[i].name ===weekDay.dateTwo())
-                days[i].colorOne = 'yellow';
-                firstDate.classList.add('yellow')
-           }
-          }
-          createDays(days);
-       
-    }
-     
-});
+            createDays(days);
+        } else {
+
+
+
+            for (let i = 0; i < days.length; i++) {
+                if (days[i].name === weekDay.dateTwo()) {
+                    days[i].colorTwo = 'blue';
+                    secondDate.classList.add('blue')
+                }
+                if (days[i].name === weekDay.dateOne()) {
+                    console.log(days[i].name === weekDay.dateTwo())
+                    days[i].colorOne = 'yellow';
+                    firstDate.classList.add('yellow')
+                }
+            }
+            createDays(days);
+
+        }
+
+    });
 });

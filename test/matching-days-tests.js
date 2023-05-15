@@ -35,7 +35,18 @@ describe('Which day function should check if it is the same day', function () {
         weekDays.setBothDates('2023-05-14', '2023-05-14')
         assert.equal(weekDays.checkDates().same, "green");
     });
-
+    it('it should return an empty string for colorOne if it is the same day', function () {
+        weekDays.setBothDates('2023-05-14', '2023-05-14')
+        assert.equal(weekDays.checkDates().colorOne, "");
+    });
+    it('it should return an empty string for colorTwo if it is the same day', function () {
+        weekDays.setBothDates('2023-05-14', '2023-05-14')
+        assert.equal(weekDays.checkDates().colorTwo, "");
+    });
+    it('it should return an empty string for same if it is not the same day', function () {
+        weekDays.setBothDates('2023-05-14', '2023-05-15')
+        assert.equal(weekDays.checkDates().same, "");
+    });
     it('it should return colorOne as yellow if it is not the same day of the week', function () {
         weekDays.setBothDates('2023-05-14', '2023-05-15')
         assert.equal(weekDays.checkDates().colorOne, "yellow");

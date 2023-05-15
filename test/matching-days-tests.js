@@ -31,14 +31,18 @@ describe('Which day function should get the day', function () {
   });
   describe('Which day function should check if it is the same day', function () {
     let weekDays = dayOfTheWeek()
-    it('it should return same day if it is the same day of the week', function () {
+    it('it should return same as green if it is the same day of the week', function () {
         weekDays.setBothDates('2023-05-14','2023-05-14')
-        assert.equal(weekDays.checkDates(), "same day");
+        assert.equal(weekDays.checkDates().same, "green");
     });
   
-    it('it should return not the same day if it is not the same day of the week', function () {
+    it('it should return colorOne as yellow if it is not the same day of the week', function () {
         weekDays.setBothDates('2023-05-14','2023-05-15')
-        assert.equal(weekDays.checkDates(), "not the same day");
+        assert.equal(weekDays.checkDates().colorOne, "yellow");
+    });
+    it('it should return colorTwo as blue if it is not the same day of the week', function () {
+        weekDays.setBothDates('2023-05-14','2023-05-15')
+        assert.equal(weekDays.checkDates().colorTwo, "blue");
     });
   
     

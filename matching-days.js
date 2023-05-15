@@ -14,13 +14,21 @@ function dayOfTheWeek(){
        
    }
    function checkDates(){
-       if(theFirstDate === theSecondDate){
-            return "same day"
-       }else{
-        return "not the same day"
+    if(theFirstDate === theSecondDate){
+         return {
+             same : "green",
+             colorOne:"",
+             colorTwo: ""
+         }
+    }else{
+     return {
+         same : "",
+         colorOne:"yellow",
+         colorTwo: "blue"
+     }
 
-       }
-   }
+    }
+}
    function dateOne(){
        return theFirstDate
    }

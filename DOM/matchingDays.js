@@ -161,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     secondDate.classList.add('blue')
                 }
                 if (days[i].name === weekDay.dateOne()) {
-                    console.log(days[i].name === weekDay.dateTwo())
                     days[i].colorOne = 'yellow';
                     firstDate.classList.add('yellow')
                 }
